@@ -1,0 +1,128 @@
+-rw-r--r-- 1 root root  844564 Jul  5 03:12 Beat.wav
+-rw-r--r-- 1 root root  265518 Jul  4 18:06 dearuser.wav
+-rw-r--r-- 1 root root  585806 Jul  5 03:12 EmotionalDamage.wav
+-rw-r--r-- 1 root root 1064570 Jul  5 03:12 follow.wav
+-rw-r--r-- 1 root root  412652 Jul  5 03:12 Gentleman.wav
+-rw-r--r-- 1 root root  522008 Jul  5 03:12 Laugh.wav
+-rw-r--r-- 1 root root   27164 Jul  5 03:14 like.wav
+-rw-r--r-- 1 root root  849714 Jul  5 03:14 love.wav
+-rw-r--r-- 1 root root   32590 Jul  5 03:14 nope.wav
+-rw-r--r-- 1 root root   33004 Jul  5 03:14 Panda.wav
+-rw-r--r-- 1 root root  207438 Jul  5 03:14 Rose.wav
+-rw-r--r-- 1 root root  307274 Jul  5 03:14 share.wav
+-rw-r--r-- 1 root root 1115788 Jul  5 03:14 Welcome.wav
+
+
+<LivechoBeatwav>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#defaebff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Beat 
+        text: 'Beat'
+        size_hint_x:.2
+        background_normal: 'image/requ1.png'
+        border: 0, 0, 0, 0
+        size_hint_x:.2
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+    Button:   
+        id:Beatwav 
+        text: 'Beat.wav'
+        max_lines:1
+        texto: 'Beat.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.4
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Beatwav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+        on_press:
+            app.root.file_play(Beatwav)
+
+
+
+<Livecholikewav>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#defaebff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:like 
+        text: 'like'
+        size_hint_x:.2
+        background_normal: 'image/requ1.png'
+        border: 0, 0, 0, 0
+        size_hint_x:.2
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+    Button:   
+        id:likewav 
+        text: 'like.wav'
+        max_lines:1
+        texto: 'like.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.4
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(likewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        font_size: '11sp'
+        bold: True
+        on_press:
+            app.root.file_play(likewav)

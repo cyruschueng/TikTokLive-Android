@@ -1,0 +1,1309 @@
+# Imports
+#:import utils kivy.utils
+<PrimaryView>:
+    canvas:
+        Color: 
+            rgba: 1, 1, 1, 1
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    orientation: 'horizontal'
+    ScreenManager:
+        id: scm
+        Screen:
+            id: liveecho
+            name: 'liveecho'
+            ScrollView:
+                bar_width: 0
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: '18sp'
+                    padding:25,20,20,0
+                    Widget:
+                        size_hint_y: None
+                        height: '5sp'
+                    Label:
+                        size_hint_y: None
+                        height: '50sp'
+                        max_lines:1
+                        text: 'Tiktok Live Echo'
+                        color: 0, 0, 0, .8
+                        valign: 'middle'
+                        halign: 'left'
+                        text_size: self.size
+                        font_size: '28sp'
+                        bold: True
+                    LivechoL:
+                    Livecholikewav:
+                    Livechofollowwav:
+                    Livechosharewav:
+                    Label:
+                        text: 'When Send Gift'
+                        size_hint_y: None
+                        text_size: self.size
+                        valign: 'middle'
+                        halign: 'left'
+                        padding_x: '15sp'
+                        height: '28sp'
+                        color: 0, 0, 0, .8
+                        font_size: '18sp'
+                        bold: True
+                    LivechoRosewav:
+                    LivechoPandawav:
+                    Livecholovewav:
+                    LivechoBeatwav: 
+                    LivechoGentlemanwav:
+                    LivechoWelcomewav:
+                    LivechoLaughwav:
+                    LivechoEmotionalDamagewav:
+                    
+
+                    # Livechonopewav:
+                    Label:
+                        text: 'When Comment Include'
+                        size_hint_y: None
+                        text_size: self.size
+                        valign: 'middle'
+                        halign: 'left'
+                        padding_x: '15sp'
+                        height: '28sp'
+                        color: 0, 0, 0, .8
+                        font_size: '18sp'
+                        bold: True
+                    Livechocomment1wav:
+                    Livechocomment2wav:
+                    Livechocomment3wav:
+                    Widget:
+                        size_hint_y: None
+                        height: '50sp'
+
+        Screen:
+            name: 'livelogs'
+            id: livelogs
+            GridLayout:
+                cols: 1
+                padding: dp(16)
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'center'
+                    size_hint: 1,None
+                    height: dp(54)
+                    MDRaisedButton:
+                        padding: dp(16)
+                        text: 'Refresh'
+                        on_release:
+                            app.load_logs()
+                ScrollView:
+                    GridLayout:
+                        id:information_box
+                        title: 'Logs'
+                        cols: 1
+                        size_hint: 1.,None    
+                        height: self.minimum_height                  
+                        
+                        MDLabel:
+                            size_hint: 1.,None 
+                            height: self.texture_size[1]
+                            theme_text_color: 'Primary'
+                            text: self.parent.title
+                            padding: 0,dp(4)
+                        MDLabel:
+                            size_hint: 1.,None 
+                            height: self.texture_size[1]
+                            id: logs_content
+                            theme_text_color: 'Primary'
+                            markup: True
+                            text: 'test [color=ff3333]Hello[/color]'   
+                            padding: 0,dp(4) 
+        
+
+
+
+    
+        Screen:
+            id: settings
+            name: 'settings'
+            ScrollView:
+                bar_width: 0
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: '18sp'
+                    padding:25,20,20,0
+                    Widget:
+                        size_hint_y: None
+                        height: '5sp'
+                    Label:
+                        size_hint_y: None
+                        max_lines:1
+                        height: '50sp'
+                        text: 'Settings'
+                        bold: True
+                        color: 0, 0, 0, .8
+                        font_size: '28sp'
+                        text_size: self.size
+                        valign: 'middle'
+                        halign: 'left'
+                        bold: True
+
+
+                    Label:
+                        text_size: self.size
+                        valign: 'middle'
+                        halign: 'left'
+                        text: 'Input user’s Username(unique id) and press "CONNECT" Button, then app can echo events such as comments and gifts in real-time from TikTok’s LIVE'
+                        color: 0, 0, 0, .8
+                        font_size: '12sp'
+                        size_hint_y: None
+                        height: '80sp'
+
+                        padding_x: '15sp'
+ 
+                    LivechoU:
+                    LivechoS:
+                    LivechoV:
+                    Widget:
+                        # Widget:
+                        #     size_hint_y: None
+                        #     height: '200sp'
+    
+            
+ 
+  
+    BoxLayout:
+        spacing: '15sp'
+        size_hint_x: None
+        padding: 0, 15, 0, 0
+        width: '50sp'
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex('#FFF9D7ff')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Widget:
+            size_hint_y: None
+            height: '50sp'
+
+        Widget:
+        # GotoButton:
+        #     state: "down" if scm.current == 'livelogs' else 'normal'
+        #     background_normal: 'image/btn1_normal.png'
+        #     background_down: 'image/btn1_down.png'
+        #     on_press: 
+        #         scm.current = 'livelogs'
+        #         scm.transition.direction = 'down'
+        GotoButton:
+            state: "down" if scm.current == 'liveecho' else 'normal'
+            background_normal: 'image/btn2_normal.png'
+            background_down: 'image/btn2_down.png'
+            on_press: 
+                scm.current = 'liveecho'
+                scm.transition.direction = 'up'
+        GotoButton:
+            state: "down" if scm.current == 'settings' else 'normal'
+            background_normal: 'image/btn3_normal.png'
+            background_down: 'image/btn3_down.png'
+            on_press: 
+                scm.current = 'settings'
+                scm.transition.direction = 'up'
+        Widget:
+    BoxLayout:
+        size_hint_x: None
+        width: '10sp'
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex('#FFF9D7ff')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+# Dynamic widgets
+<GotoButton@ToggleButton>:
+    border: 0, 0, 0, 0
+    size_hint_y: None
+    height:'50sp'
+
+
+<Content>:
+    orientation:"horizontal"
+    spacing:50  
+    size_hint_y: None
+    height:dp(50)
+    MDSpinner:
+        id:spinner
+        size_hint:None,None
+        size:dp(46),dp(46)
+        pos_hint:{'center_x':0.1,'top':1.3}
+        active:True
+    MDLabel:
+        text:'Connecting Live Room...'
+        pos_hint:{'center_x':1.8,'top':1.3}
+
+
+<Contentopen>:
+    orientation:"horizontal"
+    spacing:50  
+    size_hint_y: None
+    height:dp(50)
+    MDSpinner:
+        id:spinner
+        size_hint:None,None
+        size:dp(46),dp(46)
+        pos_hint:{'center_x':0.1,'top':1.3}
+        active:True
+    MDLabel:
+        text:'Open Dir...'
+        pos_hint:{'center_x':1.8,'top':1.3}
+
+<Options@Button>: 
+    border: 0, 0, 0, 0
+    size_hint: None, None
+    height: '25sp'
+    width: '25sp'
+
+<LivechoL>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    orientation: 'horizontal'
+    spacing:25
+    MDTextField:   
+        id:liveid 
+        # required: True
+        # halign: 'left'
+        # valign: 'middle'
+        size_hint_x:.55
+        # pos_hint: {"x":0, "y":0.63}
+        text_size: self.size
+        color: 0, 0, 0, .8
+        hint_text: "The Username Of Tiktok Live"
+        pos_hint: {'center_y':0.5, 'center_x':0.7}
+
+        # padding: dp(12)
+        #padding_x: '500sp' 
+        # background_normal: ''
+
+    Button:
+        id: ButttX
+        text: "Paste"
+        border: 0, 0, 0, 0
+        size_hint_x: .2
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        pos_hint: {'center_y':0.5, 'center_x':0.75}
+        bold: True
+        on_press:
+            app.root.paste(liveid)
+    Button:
+        id: Buttt
+        text: 'Connect'
+        border: 0, 0, 0, 0
+        size_hint_x: .25
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '15sp'
+        pos_hint: {'center_y':0.5, 'center_x':0.75}
+        bold: True
+        on_press:
+            app.root.CONNECTpaste(liveid)
+
+
+
+
+<LivechoBeatwav>:
+    id:LivechoBeatwavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Beat 
+        text: 'Mini Speaker/Headphones'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '8sp'
+        bold: True
+    Button:   
+        id:Beatwav 
+        
+        text: LivechoBeatwavid.text
+        max_lines:1
+        texto: 'Beat.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        # color: 0, 0, 0, 1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Beatwav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        # color: 0, 0, 0, 1
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Beatwav)
+
+
+<Livecholikewav>:
+    id:Livecholikewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:like 
+        text: 'When Like'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:likewav 
+        text: Livecholikewavid.text
+        max_lines:1
+        texto: 'like.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(likewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(likewav)
+
+
+<LivechoEmotionalDamagewav>:
+    id:LivechoEmotionalDamagewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:EmotionalDamage 
+        text: 'Else'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:EmotionalDamagewav 
+        text: LivechoEmotionalDamagewavid.text
+        max_lines:1
+        texto: 'EmotionalDamage.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(EmotionalDamagewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(EmotionalDamagewav)
+
+
+<LivechoGentlemanwav>:
+    id:LivechoGentlemanwavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Gentleman 
+        text: 'TikTok/Choc Chip Cookie'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '8sp'
+        bold: True
+    Button:   
+        id:Gentlemanwav 
+        text: LivechoGentlemanwavid.text
+        max_lines:1
+        texto: 'Gentleman.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Gentlemanwav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Gentlemanwav)
+
+<LivechoLaughwav>:
+    id:LivechoLaughwavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Laugh 
+        text: 'Wishing Bottle/May'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '8sp'
+        bold: True
+    Button:   
+        id:Laughwav 
+        text: LivechoLaughwavid.text
+        max_lines:1
+        texto: 'Laugh.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Laughwav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Laughwav)
+
+<LivechoPandawav>:
+    id:LivechoPandawavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Panda 
+        text: 'Panda'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:Pandawav 
+        text: LivechoPandawavid.text
+        max_lines:1
+        texto: 'Panda.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Pandawav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Pandawav)
+ 
+<LivechoRosewav>:
+    id:LivechoRosewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Rose 
+        text: 'Rose'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:Rosewav 
+        text: LivechoRosewavid.text
+        max_lines:1
+        texto: 'Rose.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Rosewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Rosewav)
+
+<LivechoWelcomewav>:
+    id:LivechoWelcomewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:Welcome 
+        text: 'Welcome/Daisies'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '8sp'
+        bold: True
+    Button:   
+        id:Welcomewav 
+        text: LivechoWelcomewavid.text
+        max_lines:1
+        texto: 'Welcome.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(Welcomewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(Welcomewav)
+
+<Livechofollowwav>:
+    id:Livechofollowwavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:follow 
+        text: 'When follow'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:followwav 
+        text: Livechofollowwavid.text
+        max_lines:1
+        texto: 'follow.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(followwav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(followwav)
+
+
+<Livecholovewav>:
+    id:Livecholovewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:love 
+        text: 'Finger Heart/Vingerhart'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '8sp'
+        bold: True
+    Button:   
+        id:lovewav 
+        text: Livecholovewavid.text
+        max_lines:1
+        texto: 'love.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(lovewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(lovewav)
+
+<Livechonopewav>:
+    id:Livechonopewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:nope 
+        text: 'When nope'
+        size_hint_x:.2
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:nopewav 
+        text: Livechonopewavid.text
+        max_lines:1
+        texto: 'nope.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.4
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(nopewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(nopewav)
+
+
+<Livechosharewav>:
+    id:Livechosharewavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    Button:   
+        id:share 
+        text: 'When share'
+        size_hint_x:.3
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ1.png'
+        color: 0, 0, 0, 1
+        border: 0, 0, 0, 0
+        font_size: '10sp'
+        bold: True
+    Button:   
+        id:sharewav 
+        text: Livechosharewavid.text
+        max_lines:1
+        texto: 'share.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(sharewav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(sharewav)
+
+<Livechocomment1wav>:
+    id:Livechocomment1wavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+ 
+    MDTextField:   
+        id:comment1text 
+        # halign: 'left'
+        # valign: 'middle'
+        size_hint_x:.3
+        
+        text: Livechocomment1wavid.textc
+        # pos_hint: {"x":0, "y":0.63}
+        text_size: self.size
+        color: 0, 0, 0, .8
+        hint_text: "text"
+        pos_hint: {'center_y':0.5, 'center_x':0.7}
+        on_text: 
+            app.root._validate1(comment1text)
+    Button:   
+        id:comment1wav 
+        text: Livechocomment1wavid.text
+        max_lines:1
+        texto: 'comment1.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(comment1wav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(comment1wav)
+            
+
+
+<Livechocomment2wav>:
+    id:Livechocomment2wavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    MDTextField:   
+        id:comment2text 
+        # halign: 'left'
+        # valign: 'middle'
+        size_hint_x:.3
+        text: Livechocomment2wavid.textc
+        # pos_hint: {"x":0, "y":0.63}
+        text_size: self.size
+        color: 0, 0, 0, .8
+        hint_text: "text"
+        pos_hint: {'center_y':0.5, 'center_x':0.7}
+        on_text: 
+            app.root._validate2(comment2text)
+    Button:   
+        id:comment2wav 
+        text: Livechocomment2wavid.text
+        max_lines:1
+        texto: 'comment2.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(comment2wav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(comment2wav)
+
+
+
+<Livechocomment3wav>:
+    id:Livechocomment3wavid
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    spacing:25
+    orientation: 'horizontal'
+    MDTextField:   
+        id:comment3text 
+        # halign: 'left'
+        # valign: 'middle'
+        size_hint_x:.3
+        text: Livechocomment3wavid.textc
+        # pos_hint: {"x":0, "y":0.63}
+        text_size: self.size
+        color: 0, 0, 0, .8
+        hint_text: "text"
+        pos_hint: {'center_y':0.5, 'center_x':0.7}
+        on_text: 
+            app.root._validate3(comment3text)
+    Button:   
+        id:comment3wav 
+        text: Livechocomment3wavid.text
+        max_lines:1
+        texto: 'comment3.wav'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:.3
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Select File'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_manager_open(comment3wav)
+    Button:
+        border: 0, 0, 0, 0
+        text: 'Play'
+        size_hint_x:.2
+        max_lines:1
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        font_size: '12sp'
+        bold: True
+        on_press:
+            app.root.file_play(comment3wav)
+
+
+
+<LivechoU>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    orientation: 'horizontal'
+ 
+        
+
+    Button:
+        id: resetauido
+        text: 'Reset Audio'
+        border: 0, 0, 0, 0
+        font_size: '12sp'
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        bold: True
+        on_release: app.reset_audio(resetauido)
+            
+<LivechoS>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    orientation: 'horizontal'
+    Button:
+        id: us
+        text: 'About'
+        border: 0, 0, 0, 0
+        font_size: '12sp'
+        background_normal: 'image/requ1.png'
+        background_down: 'image/requ2.png'
+        bold: True 
+        on_release: app.about(us)
+            
+<LivechoV>:
+    canvas: 
+        Color:
+            rgba: utils.get_color_from_hex('#FFF9D7ff')
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '40sp'
+    orientation: 'horizontal'
+    Button:    
+        text: 'Current version '+":v"+app.__version__ + "-alpha"
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size
+        size_hint_x:0.8
+        color: 0, 0, 0, .8
+        padding_x: '5sp' 
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 0, 0, 0
+    # Button:    
+    #     text:  
+    #     halign: 'left'
+    #     valign: 'middle'
+    #     text_size: self.size
+    #     color: 0, 0, 0, .8
+    #     padding_x: '5sp' 
+    #     background_normal: ''
+    #     background_down: ''
+    #     background_color: 0, 0, 0, 0
+        
+
+ 
